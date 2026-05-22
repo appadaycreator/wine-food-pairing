@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ワイン×料理ペアリング診断【無料】無料Webツール</title>
+    <meta name="description" content="今日の料理に合うワインをスタイル・価格帯で提案。逆引き（ワイン→料理）も可。登録不要・完全無料でご利用いただけます。">
+    <link rel="canonical" href="https://appadaycreator.github.io/wine-food-pairing/">
+    <meta property="og:title" content="ワイン×料理ペアリング診断【無料】無料Webツール">
+    <meta property="og:description" content="今日の料理に合うワインをスタイル・価格帯で提案。逆引き（ワイン→料理）も可。登録不要・完全無料でご利用いただけます。">
+    <meta property="og:url" content="https://appadaycreator.github.io/wine-food-pairing/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍷</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.clarity.ms">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TXQGZRF9');</script>
+    <!-- Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","s3t9vl8h3v");</script>
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8427583028015858" crossorigin="anonymous"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ワイン×料理ペアリング診断","description":"今日の料理に合うワインをスタイル・価格帯で提案。逆引き（ワイン→料理）も可。登録不要・完全無料でご利用いただけます。","url":"https://appadaycreator.github.io/wine-food-pairing/","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background: linear-gradient(135deg, #E0E7FF 0%, #F0F4FF 100%); min-height: 100vh; color: #333; line-height: 1.6; }
+        .site-header { background: #6366F1; color: white; padding: 32px 20px; text-align: center; }
+        .site-header .emoji { font-size: 52px; margin-bottom: 8px; }
+        .site-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .site-header p { font-size: 14px; opacity: 0.9; }
+        .container { max-width: 800px; margin: 0 auto; padding: 16px; }
+        .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 16px; }
+        .btn { background: #6366F1; color: white; border: none; padding: 14px 24px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: opacity .2s; }
+        .btn:hover { opacity: 0.9; }
+        .btn:active { transform: scale(0.98); }
+        input, select, textarea { width: 100%; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 15px; margin-top: 4px; font-family: inherit; }
+        input:focus, select:focus { outline: none; border-color: #6366F1; }
+        label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-top: 14px; margin-bottom: 2px; }
+        .result { display: none; }
+        .result.show { display: block; }
+        .result-value { font-size: 36px; font-weight: 700; color: #6366F1; text-align: center; padding: 16px 0; }
+        .badge { display: inline-block; background: #6366F120; color: #6366F1; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        /* ── サービス固有CSS ── */
+        .sel{width:100%;padding:10px;border:1px solid #c7d2fe;border-radius:8px;font-size:14px;margin-bottom:12px;background:#fff;}
+        .tab{display:inline-block;padding:8px 20px;border-radius:20px;font-size:13px;cursor:pointer;border:2px solid #6366F1;margin-right:8px;transition:.2s;}
+        .tab.active{background:#6366F1;color:#fff;} .wine-card{background:#f5f3ff;border-radius:10px;padding:12px;margin-bottom:10px;}
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXQGZRF9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header class="site-header">
+        <div class="emoji">🍷</div>
+        <h1>ワイン×料理ペアリング診断</h1>
+        <p>今日の料理に合うワインをスタイル・価格帯で提案。逆引き（ワイン→料理）も可。</p>
+    </header>
+
+    <main class="container">
+        <ins class="adsbygoogle" style="display:block;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div class="card">
+          <h2 style="font-size:18px;font-weight:700;margin-bottom:16px;">🍷 ワイン×料理ペアリング診断</h2>
+          <div style="margin-bottom:16px;">
+            <span class="tab active" id="tab-food" onclick="switchTab('food')">料理→ワイン</span>
+            <span class="tab" id="tab-wine" onclick="switchTab('wine')">ワイン→料理</span>
+          </div>
+          <div id="pane-food">
+            <label style="font-size:13px;color:#555;">料理ジャンル</label>
+            <select id="genre" class="sel">
+              <option value="wafood">和食</option><option value="italian">イタリアン</option>
+              <option value="french">フレンチ</option><option value="chinese">中華</option>
+              <option value="bbq">焼肉・バーベキュー</option><option value="seafood">魚介料理</option>
+              <option value="cheese">チーズ・生ハム</option><option value="spicy">スパイシー料理</option>
+            </select>
+            <label style="font-size:13px;color:#555;">価格帯</label>
+            <select id="price" class="sel">
+              <option value="low">〜2,000円</option><option value="mid">2,000〜5,000円</option>
+              <option value="high">5,000円〜</option>
+            </select>
+          </div>
+          <div id="pane-wine" style="display:none;">
+            <label style="font-size:13px;color:#555;">ワインの種類</label>
+            <select id="wtype" class="sel">
+              <option value="red_light">赤ワイン（軽め）</option><option value="red_full">赤ワイン（重め）</option>
+              <option value="white_dry">白ワイン（辛口）</option><option value="white_sweet">白ワイン（甘口）</option>
+              <option value="rose">ロゼワイン</option><option value="sparkling">スパークリング</option>
+            </select>
+          </div>
+          <button class="btn" style="margin-top:8px;" onclick="generate()">診断する</button>
+        </div>
+        <div class="result" id="result" style="margin-top:16px;">
+          <div class="card">
+            <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;color:#6366F1;">🍾 おすすめペアリング</h3>
+            <div id="output"></div>
+          </div>
+        </div>
+
+        <!-- 関連サービス -->
+        <div class="card" style="margin-top:8px;">
+            <h3 style="font-size:13px;font-weight:600;color:#888;margin-bottom:10px;">🔗 関連サービス</h3>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+                <a href="https://appadaycreator.github.io/wine-sake-advisor/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">ワイン・日本酒診断 →</a>
+                <a href="https://appadaycreator.github.io/pantry-chef/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">PantryChef Pro →</a>
+                <a href="https://appadaycreator.github.io/eating-out-budget-advisor/" style="color:#6366f1;font-size:13px;text-decoration:none;padding:6px 0;border-bottom:1px solid #f1f5f9;">🍽️ 外食費・食費最適化診断 →</a>
+            </div>
+        </div>
+
+        <ins class="adsbygoogle" style="display:block;margin:12px 0" data-ad-client="ca-pub-8427583028015858" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </main>
+
+    <footer style="text-align:center;padding:20px;color:white;font-size:12px;opacity:0.75;margin-top:8px;">
+        <p><a href="https://appadaycreator.github.io/" style="color:white;">AppADayCreator</a>
+        | <a href="privacy-policy.html" style="color:white;">プライバシーポリシー</a>
+        | <a href="terms.html" style="color:white;">利用規約</a>
+        | <a href="contact.html" style="color:white;">お問い合わせ</a></p>
+        <p style="margin-top:6px;">© 2025 AppADayCreator. All services are free.</p>
+    </footer>
+
+    <script>
+    const BTN_COLOR = '#6366F1';
+    let mode = 'food';
+    const FOOD_DATA = {
+      wafood: {wines:['ピノ・ノワール（軽め赤）','辛口白ワイン（シャルドネ）','スパークリング（辛口）'], tips:'繊細な和食には軽やかなワインが好相性。魚料理には白、肉料理には軽め赤を。'},
+      italian:{wines:['サンジョヴェーゼ（赤）','キャンティ','ピノ・グリージョ（白）'], tips:'トマト系にはサンジョヴェーゼ、クリーム系にはシャルドネが定番。'},
+      french: {wines:['ボルドー（赤）','ブルゴーニュ白','シャンパーニュ'], tips:'フレンチはテロワールを合わせるのが王道。産地×産地で楽しんで。'},
+      chinese:{wines:['リースリング（辛口）','ゲヴュルツトラミネール','ロゼ'], tips:'香辛料に負けないアロマティック系白やロゼがおすすめ。'},
+      bbq:    {wines:['カベルネ・ソーヴィニヨン','シラー','マルベック'], tips:'タンニン豊富なフルボディ赤が焼肉の脂と絶妙にマッチ。'},
+      seafood:{wines:['シャブリ','ソーヴィニヨン・ブラン','スパークリング'], tips:'魚介には酸味のある辛口白。牡蠣にはシャブリが鉄板。'},
+      cheese: {wines:['ポートワイン','ソーテルヌ','シャンパーニュ'], tips:'チーズの種類で変えるのがプロ流。熟成チーズには甘口ワインも◎。'},
+      spicy:  {wines:['モスカート（甘口）','ロゼ','低アルコール白'], tips:'辛さを和らげる甘口・低アルコールがベスト。辛さを増すフルボディ赤は避けて。'}
+    };
+    const PRICE_NOTE = {low:'〜2,000円台：チリ・スペイン産コスパワインがおすすめ。',mid:'2,000〜5,000円：フランス・イタリアの地方ワインを探してみて。',high:'5,000円〜：産地・ヴィンテージにこだわった本格派ワインを。'};
+    const WINE_DATA = {
+      red_light:  {foods:['鶏肉料理','サーモン料理','和食（肉系）','キノコ料理'], tips:'軽めの赤は素材の味を邪魔しません。'},
+      red_full:   {foods:['ビーフステーキ','焼肉','ラム料理','熟成チーズ'], tips:'フルボディ赤は赤身肉と最高の相性。'},
+      white_dry:  {foods:['魚介料理','サラダ','パスタ（白ソース）','鶏料理'], tips:'辛口白は幅広い料理に合わせやすい万能選手。'},
+      white_sweet:{foods:['デザート','フォアグラ','ブルーチーズ','スパイシー料理'], tips:'甘口白はスパイシーさや甘味の強い料理に。'},
+      rose:       {foods:['プロバンス料理','エビ料理','冷製パスタ','ピクニックフード'], tips:'ロゼはどんな料理にも合わせやすい万能ワイン。'},
+      sparkling:  {foods:['前菜全般','揚げ物','寿司・刺身','お祝い料理'], tips:'スパークリングの泡が口をリフレッシュ。揚げ物にも◎。'}
+    };
+    function switchTab(t) {
+      mode = t;
+      document.getElementById('tab-food').classList.toggle('active', t==='food');
+      document.getElementById('tab-wine').classList.toggle('active', t==='wine');
+      document.getElementById('pane-food').style.display = t==='food' ? '' : 'none';
+      document.getElementById('pane-wine').style.display = t==='wine' ? '' : 'none';
+      document.getElementById('result').classList.remove('show');
+    }
+    document.addEventListener('DOMContentLoaded', () => {});
+    function generate() {
+      let html = '';
+      if (mode === 'food') {
+        const d = FOOD_DATA[document.getElementById('genre').value];
+        const p = PRICE_NOTE[document.getElementById('price').value];
+        html = d.wines.map(w => `<div class="wine-card">🍾 <strong>${w}</strong></div>`).join('')
+          + `<p style="font-size:13px;color:#555;margin-top:10px;">${d.tips}</p>`
+          + `<p style="font-size:12px;color:#888;margin-top:6px;">💰 ${p}</p>`;
+      } else {
+        const d = WINE_DATA[document.getElementById('wtype').value];
+        html = '<p style="font-size:13px;font-weight:600;margin-bottom:8px;">おすすめ料理：</p>'
+          + d.foods.map(f => `<div class="wine-card">🍽️ ${f}</div>`).join('')
+          + `<p style="font-size:13px;color:#555;margin-top:10px;">${d.tips}</p>`;
+      }
+      document.getElementById('output').innerHTML = html;
+      document.getElementById('result').classList.add('show');
+      document.getElementById('result').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    </script>
+</body>
+</html>
