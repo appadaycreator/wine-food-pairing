@@ -1,8 +1,9 @@
 {
   "name": "Wine Food Pairing",
   "short_name": "wine-food-pa",
-  "start_url": "/",
+  "start_url": "/wine-food-pairing/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#6366f1"
+  "theme_color": "#6366f1",
+  "scope": "/wine-food-pairing/"
 }
